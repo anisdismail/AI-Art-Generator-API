@@ -10,5 +10,7 @@ A streamlined API for the CLIP+VQGAN AI Art Generator using Pytorch and FastAPI
 ## Demo
 present api doc here
 
+## Benchmarks
 
 ## Acknowledgments
+https://github.com/crowsonkb
