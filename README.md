@@ -1,4 +1,4 @@
-# AI Art Generator Api
+# AI Art Generator API
 A streamlined API for the CLIP+VQGAN AI Art Generator using Pytorch and FastAPI
 
 ## Overview
