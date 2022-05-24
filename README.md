@@ -2,16 +2,28 @@
 A streamlined API for the CLIP+VQGAN AI Art Generator using Pytorch and FastAPI
 
 ## Overview
+This reposistry showcases an API for **CLIP+VQGAN** prompt to image model. It exposes the model's endpoints where the user can provide a text for the
+model to generate a painting and send it back. The backbone model used is a combination of a generator ([VQGAN](https://compvis.github.io/taming-transformers/)) and critic ([CLIP](https://openai.com/blog/clip/)). The generator is a VQGAN model, short for Vector Quantized Generative Adversarial Network and the critic is a CLIP model short for Contrastive Image-Language Pretraining. The critic is a ViT-B/32 Transformer architecture which works as an image encoder and uses a masked self-attention Transformer as a text encoder. In this project, we will be using the weights pretrained on the wikiart dataset.
+<br> These encoders are trained to maximize the similarity of (image, text) pairs via a contrastive loss. The generator will generate an image and the critic will measure how well the image matches the text. Then, the generator uses the feedback from the critic model to generate more accurate images. This iteration will be done many times until the CLIP score becomes high enough and the generated image matches the text. 
 
+<img src="https://miro.medium.com/max/1400/0*WeVqITaPf0a-mlIY.png" alt="Nuro app logo" width="700" height="700" align="center">
+
+[Source: The Illustrated VQGAN by LJ Miranda](https://ljvmiranda921.github.io/notebook/2021/08/08/clip-vqgan/)
 
 ## Setup
-
+The image generation process is computationally expensive and requires strong computational power. We will be using the Google Colab platform to run the model.
+<br>
+To run the API, open the Text to Art GAN notebook found [here](https://github.com/anisdismail/AI-Art-Generator-API/blob/main/Text_to_Art_GAN.ipynb) and follow the instructions there. <br>
+Once the API is successfully running, you will obtain a public URL that you can use in your application with the following format: 
+```
+http://-----------------.ngrok.io
+```
 
 ## API Endpoints
 To see all available endpoints, open your favorite browser and navigate to:
 
 ```
-http://<colab_url>/docs
+http://-----------------.ngrok.io/docs
 ```
 
 The API endpoints are divided as follows:
